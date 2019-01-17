@@ -23,12 +23,13 @@ namespace TopicTools
 
             string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
             dynamic data = JsonConvert.DeserializeObject(requestBody);
+            if(data == null) return new BadRequestObjectResult("Please give topic and message");
             string topicConnection = data.topicConnection;
             string topicName = data.topicName;
             dynamic message = data.message;
 
             if (topicConnection == null || topicName == null || message == null) 
-            return new BadRequestObjectResult("Please give topic and message ");
+            return new BadRequestObjectResult("Please give topic and message");
 
             log.LogInformation($"Start sending message {message}");
             ITopicClient topicClient = new TopicClient(topicConnection, topicName);
