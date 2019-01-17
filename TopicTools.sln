@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TopicTools", "TopicTools\TopicTools.csproj", "{79B17C51-C3F8-47D2-B625-C073726266E2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TopicTools.Tests", "TopicTools.Tests\TopicTools.Tests.csproj", "{4BA6858D-5A74-483B-A4F5-D9BBF1CF6EB4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,5 +15,9 @@ Global
 		{79B17C51-C3F8-47D2-B625-C073726266E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{79B17C51-C3F8-47D2-B625-C073726266E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{79B17C51-C3F8-47D2-B625-C073726266E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BA6858D-5A74-483B-A4F5-D9BBF1CF6EB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BA6858D-5A74-483B-A4F5-D9BBF1CF6EB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BA6858D-5A74-483B-A4F5-D9BBF1CF6EB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BA6858D-5A74-483B-A4F5-D9BBF1CF6EB4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
