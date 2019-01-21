@@ -11,6 +11,7 @@ using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Microsoft.Azure.ServiceBus;
 using System.Text;
+using AzureFuncLib;
 
 namespace TopicTools
 {
@@ -28,8 +29,13 @@ namespace TopicTools
             string topicName = data.topicName;
             dynamic message = data.message;
 
-            if (topicConnection == null || topicName == null || message == null) 
-            return new BadRequestObjectResult("Please give topic and message");
+            if (topicConnection == null || topicName == null || message == null)
+            {
+                log.LogWarning("Empty topic info");
+                var webHookUrl = Environment.GetEnvironmentVariable("LoggerHttpFunctionUrl");
+                await HttpClientHelper.PostAsync(webHookUrl, "Empty topic info");
+                return new BadRequestObjectResult("Please give topic and message");
+            }
 
             log.LogInformation($"Start sending message {message}");
             ITopicClient topicClient = new TopicClient(topicConnection, topicName);
