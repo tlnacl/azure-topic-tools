@@ -20,15 +20,13 @@ namespace TopicTools
         [FunctionName("SendMessage")]
         public static async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)]HttpRequest req, ILogger log)
         {
-            string name = req.Query["name"];
-
             string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
             dynamic data = JsonConvert.DeserializeObject(requestBody);
             if(data == null) return new BadRequestObjectResult("Please give topic and message");
             string topicConnection = data.topicConnection;
             string topicName = data.topicName;
             dynamic message = data.message;
-
+            log.LogInformation(LogUtils.Template, "SendMessage", 1, "test log template");
             if (topicConnection == null || topicName == null || message == null)
             {
                 log.LogWarning("Empty topic info");
