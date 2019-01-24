@@ -26,7 +26,7 @@ namespace TopicTools
             string topicConnection = data.topicConnection;
             string topicName = data.topicName;
             dynamic message = data.message;
-
+            log.LogInformation("Test log template");
             log.LogInformation(LogUtils.Template, "SendMessage", 1, "test log template");
             if (topicConnection == null || topicName == null || message == null)
             {
